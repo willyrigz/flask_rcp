@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <div class="navbar-toggle">
+        <button type="button" class="navbar-toggler">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
+      <a class="navbar-brand" href="#pablo">Dashboard</a>
+    </div>
+    
+   
+  </div>
+</nav>
+<!-- End Navbar -->
+<div class="panel-header panel-header-md">
+  <div class="navbar-brand"><p><h2 style="color:white;">Restaurant Customer Predictor</h2></p></div>
+</div>
+<div class="content">
+  <div class="row">
+   
+    <div class="col-lg-4 col-md-6 mx-auto">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-category">Weather Details</h5>
+          <!-- <h4 class="card-title"># of Cust</h4> -->
+        </div>
+        <div class="card-body">
+          <div class="box">
+            <article>
+              <div class="row">
+                <div class="media-left col-lg-4">
+                  <figure class="image is-50x50">
+                    <img src="https://openweathermap.org/img/w/{{ weather.icon }}.png">
+                  </figure>
+                </div>
+                <div class="media-content col-lg-8">
+                  <div class="content">
+                    <p>
+                      <span class="title">{{ weather.city }}</span>
+                      <br>
+                      <span class="subtitle">Humidity: {{ weather.humidity }}</span>
+                      <br>
+                      <span class="subtitle">Pressure: {{ weather.pressure }}</span>
+                      <br>
+                      <span class="subtitle">Temperature: {{ weather.temperature }}° F</span>
+                      <br>
+                      {{ weather.description }}
+                      <br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </article>
+          </div>
+          
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <button class="btn btn-primary">Update</button><i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+   
+  </div>
+{% endblock %}
