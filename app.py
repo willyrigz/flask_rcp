@@ -62,31 +62,21 @@ def index():
 			db.session.commit()
 			alert = 'Update Successful'
 			alert_style='alert alert-success'
-	weather = db.session.query(Data).order_by(Data.id.desc()).first()
-	# utc = arrow.utcnow()
-	# last_update = datetime.utcnow() - weather.timestamp
-	# last_update_secs = last_update.total_seconds()
-	# last_update_hours = int(last_update_secs / 3600)
-	# last_update_minutes = int(last_update_secs / 60) % 60
-	# print(weather.timestamp)
-	# print(datetime.utcnow())
-	# print(last_update_hours)
-	# print(last_update_minutes)
-	# print(arrow.get(weather.timestamp))
-	human_time = arrow.get(weather.timestamp).humanize()
-	# print(human_time)
-	# print(arrow.get(datetime.utcnow()))
-	# weather = {
-	# 	'city' : r['name'],
-	# 	'humidity' : r['main']['humidity'],
-	# 	'pressure' : r['main']['pressure'],
-	# 	'temperature' : r['main']['temp'],
-	# 	'description' : r['weather'][0]['description'],
-	# 	'icon' : r['weather'][0]['icon'],
 
-	# }
+	weather_count = db.session.query(Data).order_by(Data.id.desc()).count()
 
-	# print(weather)
+	if weather_count > 0:
+
+		weather = db.session.query(Data).order_by(Data.id.desc()).first()
+		
+		# last_update_hours = int(last_update_secs / 3600)		
+		
+		human_time = arrow.get(weather.timestamp).humanize()
+
+	else:
+		weather = {}
+		human_time = ''
+	
 
 	return render_template("index.html", arrow=arrow, weather=weather, human_time=human_time, home='active', alert=alert, alert_style=alert_style)
 
