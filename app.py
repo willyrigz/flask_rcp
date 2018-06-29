@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-	url = 'http://api.openweathermap.org/data/2.5/weather?q=Dublin,IE&units=imperial&appid=271d1234d3f497eed5b1d80a07b3fcd1'
+	url = 'https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22'
 	
 	r = requests.get(url).json()
 	
