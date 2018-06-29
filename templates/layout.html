@@ -34,13 +34,13 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li class="{{ home | safe }}">
             <a href="{{url_for('index')}}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="{{ records | safe }}">
             <a href="{{url_for('records')}}">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Rec</p>

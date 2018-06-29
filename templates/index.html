@@ -28,7 +28,11 @@
       <div class="card card-chart">
         <div class="card-header">
           <h5 class="card-category">Weather Details</h5>
-          <!-- <h4 class="card-title"># of Cust</h4> -->
+          <p>
+            <div class="{{ alert_style }}">
+              {{alert | safe}}
+            </div>
+          </p>
         </div>
         <div class="card-body">
           <div class="box">
@@ -65,7 +69,10 @@
         <div class="card-footer ">
           <hr>
           <div class="stats">
-            <button class="btn btn-primary">Update</button><i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+            <form method="POST" action="{{ url_for('index')}}">
+              <button type="submit" class="btn btn-primary">Update</button><i class="now-ui-icons loader_refresh spin"></i> {{ human_time }}
+            </form>
+            
           </div>
         </div>
       </div>
